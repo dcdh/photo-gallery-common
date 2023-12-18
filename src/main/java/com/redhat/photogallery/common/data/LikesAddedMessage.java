@@ -1,29 +1,18 @@
 package com.redhat.photogallery.common.data;
 
-public class LikesAddedMessage {
+import java.util.Objects;
 
-    private Long id;
-    private int likes;
+public record LikesAddedMessage(Long id, Integer likes) {
+    public LikesAddedMessage {
+        Objects.requireNonNull(id);
+        Objects.requireNonNull(likes);
+    }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getLikes() {
+    public Integer getLikes() {
         return likes;
     }
-
-    public void setLikes(int likes) {
-        this.likes = likes;
-    }
-
-    @Override
-    public String toString() {
-        return "LikesItem [id=" + id + ", likes=" + likes + "]";
-    }
-
 }

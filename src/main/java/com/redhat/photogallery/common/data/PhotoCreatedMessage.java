@@ -1,38 +1,23 @@
 package com.redhat.photogallery.common.data;
 
-public class PhotoCreatedMessage {
+import java.util.Objects;
 
-    private Long id;
-    private String name;
-    private String category;
-
-    public long getId() {
-        return id;
+public record PhotoCreatedMessage(Long id, String name, String category) {
+    public PhotoCreatedMessage {
+        Objects.requireNonNull(id);
+        Objects.requireNonNull(name);
+        Objects.requireNonNull(category);
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCategory() {
         return category;
     }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    @Override
-    public String toString() {
-        return "PhotoItem [id=" + id + ", name=" + name + ", category=" + category + "]";
-    }
-
 }
